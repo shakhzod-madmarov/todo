@@ -1,0 +1,11 @@
+.nav {
+  @include container;
+
+  &__list {
+    @include flex;
+    &--item {
+      color: $secondary-color;
+      font-size: $font-size-small;
+    }
+  }
+}

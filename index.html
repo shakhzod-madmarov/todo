@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do List</title>
+    <title>Список дел</title>
     <link rel="stylesheet" href="./dist/styles.css" />
   </head>
   <body>
@@ -31,7 +31,8 @@
         </ul>
       </nav>
     </header>
-    <section>
+    <section class="todo-intro__section">
+      <h1>Список дел</h1>
       <form class="todo__form" id="todoForm">
         <label for="todoTask">задание</label>
         <input type="text" id="todoText" class="todo__form__input" required/
@@ -43,7 +44,7 @@
         </button>
       </form>
     </section>
-    <section>
+    <section class="todo">
       <ul id="todoList" class="todo__list">
         <!-- todos will be loaded here -->
       </ul>

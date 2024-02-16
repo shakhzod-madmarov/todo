@@ -1,0 +1,17 @@
+@mixin container {
+  max-width: 900px;
+  width: 90%;
+  height: auto;
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin grid {
+  display: grid;
+  place-items: center;
+}

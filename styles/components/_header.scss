@@ -1,0 +1,6 @@
+.header {
+  background-color: $primary-color;
+  width: 100dvw;
+  height: 10dvh;
+  @include grid;
+}

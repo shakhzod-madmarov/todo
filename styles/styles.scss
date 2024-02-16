@@ -3,7 +3,6 @@
 @import "base/mixins";
 @import "base/reset";
 @import "base/typography";
-@import "base/globals";
 
 // Importing components
 @import "components/header";
@@ -11,6 +10,7 @@
 @import "components/form";
 @import "components/list";
 @import "components/buttons";
+@import "components/todo-intro";
 
 // Importing page-specific styles
 @import "pages/all";
