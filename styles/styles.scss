@@ -1,0 +1,21 @@
+// Importing base styles
+@import "base/variables";
+@import "base/mixins";
+@import "base/reset";
+@import "base/typography";
+@import "base/globals";
+
+// Importing components
+@import "components/header";
+@import "components/nav";
+@import "components/form";
+@import "components/list";
+@import "components/buttons";
+
+// Importing page-specific styles
+@import "pages/all";
+@import "pages/completed";
+@import "pages/overdue";
+@import "pages/pending";
+@import "pages/scheduled";
+@import "pages/today";

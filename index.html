@@ -4,45 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
+    <link rel="stylesheet" href="./dist/styles.css" />
   </head>
   <body>
     <header class="header">
       <nav class="header__nav nav">
         <ul class="nav__list">
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">All</a>
+            <a href="#" class="nav__link">Все</a>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Today</a>
+            <a href="#" class="nav__link">Сегодня</a>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Overdue</a>
+            <a href="#" class="nav__link">Опаздывающие</a>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Scheduled</a>
+            <a href="#" class="nav__link">Запланированные</a>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Pending</a>
+            <a href="#" class="nav__link">В ожидании</a>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Completed</a>
+            <a href="#" class="nav__link">Завершенные</a>
           </li>
         </ul>
       </nav>
     </header>
     <section>
       <form class="todo__form" id="todoForm">
-        <label for="todoTask">To do Text</label>
+        <label for="todoTask">задание</label>
         <input type="text" id="todoText" class="todo__form__input" required/
-        placeholder="todo ...">
-        <label for="todoDate">To do Date</label>
-        <input
-          type="todoDate"
-          id="todoDate"
-          class="todo__form__input"
-          required
-        />
-        <button type="submit" id="todoBtn" class="todo__form__btn">Add</button>
+        placeholder="написать задачу ...">
+        <label for="todoDate">дата задания</label>
+        <input type="date" id="todoDate" class="todo__form__input" required />
+        <button type="submit" id="todoBtn" class="todo__form__btn">
+          добавить
+        </button>
       </form>
     </section>
     <section>
