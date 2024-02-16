@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav nav">
+        <ul class="nav__list">
+          <li class="nav__list--item nav__item">
+            <a href="#" class="nav__link">All</a>
+          </li>
+          <li class="nav__list--item nav__item">
+            <a href="#" class="nav__link">Today</a>
+          </li>
+          <li class="nav__list--item nav__item">
+            <a href="#" class="nav__link">Overdue</a>
+          </li>
+          <li class="nav__list--item nav__item">
+            <a href="#" class="nav__link">Scheduled</a>
+          </li>
+          <li class="nav__list--item nav__item">
+            <a href="#" class="nav__link">Pending</a>
+          </li>
+          <li class="nav__list--item nav__item">
+            <a href="#" class="nav__link">Completed</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <form class="todo__form" id="todoForm">
+        <label for="todoTask">To do Text</label>
+        <input type="text" id="todoText" class="todo__form__input" required/
+        placeholder="todo ...">
+        <label for="todoDate">To do Date</label>
+        <input
+          type="todoDate"
+          id="todoDate"
+          class="todo__form__input"
+          required
+        />
+        <button type="submit" id="todoBtn" class="todo__form__btn">Add</button>
+      </form>
+    </section>
+    <section>
+      <ul id="todoList" class="todo__list">
+        <!-- todos will be loaded here -->
+      </ul>
+    </section>
+  </body>
+</html>
