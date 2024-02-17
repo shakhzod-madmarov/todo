@@ -8,46 +8,66 @@
   </head>
   <body>
     <header class="header">
-      <nav class="header__nav nav">
+      <nav class="header__nav nav" id="headerNav">
         <ul class="nav__list">
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Все</a>
+            <button
+              type="button"
+              data-filter="all"
+              type="button"
+              class="active"
+            >
+              <a href="#" class="nav__link">Все</a>
+            </button>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Сегодня</a>
+            <button type="button" data-filter="today" type="button">
+              <a href="#" class="nav__link">Сегодня</a>
+            </button>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Опаздывающие</a>
+            <button type="button" data-filter="overdue" type="button">
+              <a href="#" class="nav__link">Опаздывающие</a>
+            </button>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Запланированные</a>
+            <button type="button" data-filter="scheduled" type="button">
+              <a href="#" class="nav__link">Запланированные</a>
+            </button>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">В ожидании</a>
+            <button type="button" data-filter="pending" type="button">
+              <a href="#" class="nav__link">В ожидании</a>
+            </button>
           </li>
           <li class="nav__list--item nav__item">
-            <a href="#" class="nav__link">Завершенные</a>
+            <button type="button" data-filter="completed" type="button">
+              <a href="#" class="nav__link">Завершенные</a>
+            </button>
           </li>
         </ul>
       </nav>
     </header>
-    <section class="todo-intro__section">
-      <h1>Список дел</h1>
-      <form class="todo__form" id="todoForm">
-        <label for="todoTask">задание</label>
-        <input type="text" id="todoText" class="todo__form__input" required/
-        placeholder="написать задачу ...">
-        <label for="todoDate">дата задания</label>
-        <input type="date" id="todoDate" class="todo__form__input" required />
-        <button type="submit" id="todoBtn" class="todo__form__btn">
-          добавить
-        </button>
-      </form>
-    </section>
-    <section class="todo">
-      <ul id="todoList" class="todo__list">
-        <!-- todos will be loaded here -->
-      </ul>
-    </section>
+    <main class="main">
+      <section class="todo-intro__section">
+        <h1>Список дел</h1>
+        <form class="todo__form" id="todoForm">
+          <label for="todoTask">задание</label>
+          <input type="text" id="todoText" class="todo__form__input" required/
+          placeholder="написать задачу ...">
+          <label for="todoDate">дата задания</label>
+          <input type="date" id="todoDate" class="todo__form__input" required />
+          <button type="submit" id="todoAddBtn" class="todo__form__btn">
+            добавить
+          </button>
+        </form>
+      </section>
+      <section class="todos">
+        <ul id="todosList" class="todos__list">
+          <!-- todos will be loaded here -->
+        </ul>
+      </section>
+    </main>
+    <script src="scripts.js"></script>
   </body>
 </html>

@@ -1,10 +1,14 @@
-.todo {
+.todos {
   @include container;
   background-color: $third-color;
-  margin: 0 auto;
+  margin: 20px auto;
   border-radius: 10px;
   color: $secondary-color;
   font-size: $font-size-small;
   &__list {
+    width: 100%;
+    @include grid;
+    gap: 20px;
+    padding: 10px;
   }
 }

@@ -1,0 +1,14 @@
+.todos__item {
+  @include flex;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 90%;
+  background-color: $primary-color;
+  .todo {
+    @include flex;
+    min-width: 22%;
+    max-width: 80%;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+}

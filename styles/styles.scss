@@ -9,13 +9,6 @@
 @import "components/nav";
 @import "components/form";
 @import "components/list";
+@import "components/item";
 @import "components/buttons";
 @import "components/todo-intro";
-
-// Importing page-specific styles
-@import "pages/all";
-@import "pages/completed";
-@import "pages/overdue";
-@import "pages/pending";
-@import "pages/scheduled";
-@import "pages/today";
