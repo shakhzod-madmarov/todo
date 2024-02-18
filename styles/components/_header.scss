@@ -4,3 +4,10 @@
   height: 10dvh;
   @include grid;
 }
+
+@media (max-width: 700px) {
+  .header {
+    display: flex;
+    align-items: center;
+  }
+}

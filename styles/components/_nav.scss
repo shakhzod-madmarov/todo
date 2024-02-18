@@ -5,3 +5,28 @@
     @include flex;
   }
 }
+
+@media (max-width: 700px) {
+  .nav__list {
+    display: none;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    height: 90dvh;
+    width: 60dvw;
+    background-color: $primary-color;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .nav__list {
+    width: 100dvw;
+    a {
+      font-size: $font-size-mobile-small;
+    }
+  }
+}

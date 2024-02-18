@@ -11,3 +11,22 @@ h1 {
   font-size: $font-size-small;
 }
 
+@media (max-width: 700px) {
+  .todo-text {
+    font-size: $font-size-tablet;
+  }
+
+  .todo-date {
+    font-size: $font-size-table-small;
+  }
+}
+
+@media (max-width: 450px) {
+  .todo-text {
+    font-size: $font-size-mobile;
+  }
+
+  .todo-date {
+    font-size: $font-size-mobile-small;
+  }
+}

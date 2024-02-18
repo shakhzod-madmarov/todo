@@ -6,6 +6,23 @@ let todoListArray = [];
 let todosFilter = "all";
 let filteredTodos = [];
 
+const headerBtn = document.querySelector("#headerBtn");
+const navList = document.querySelector("#navList");
+
+// добавляет обработчик события клика на кнопку headerBtn и открывает navList.
+headerBtn.addEventListener("click", () => {
+  const computedStyle = window.getComputedStyle(navList);
+  const currentDisplay = computedStyle.getPropertyValue("display");
+
+  if (currentDisplay === "none") {
+    navList.style.display = "flex";
+    document.body.classList.add("no-scroll");
+  } else {
+    navList.style.display = "none";
+    document.body.classList.remove("no-scroll");
+  }
+});
+
 /*
  Сохраняет список задач в локальное хранилище браузера.
  Преобразует массив задач в формат JSON и сохраняет его под ключом "todoList" в локальное хранилище.
@@ -248,7 +265,9 @@ const getOverdueTodos = (today) => {
 
 const getScheduledTodos = (today) => {
   const scheduledTodos = todoListArray.filter(
-    (todo) => dateStringToDate(formatDate(todo.date)) > today
+    (todo) =>
+      dateStringToDate(formatDate(todo.date)) > today &&
+      todo.state === "pending"
   );
 
   return scheduledTodos;

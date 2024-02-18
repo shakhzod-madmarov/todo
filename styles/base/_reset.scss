@@ -16,3 +16,7 @@ body {
   min-height: 100dvh;
   background-color: $background-color;
 }
+
+.no-scroll {
+  overflow: hidden;
+}

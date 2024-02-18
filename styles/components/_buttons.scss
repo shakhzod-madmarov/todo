@@ -40,3 +40,35 @@
     padding: 15px;
   }
 }
+
+.header__btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  color: $secondary-color;
+  width: 30px;
+  height: 30px;
+  font-size: $font-size-medium;
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .header__btn {
+    display: block;
+    position: absolute;
+    right: 50px;
+  }
+
+  .todo__btn--done,
+  .todo__btn--delete {
+    font-size: $font-size-table-small;
+    width: 80px;
+    padding: 5px 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .header__btn {
+    right: 20px;
+  }
+}

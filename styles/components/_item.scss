@@ -8,7 +8,18 @@
     @include flex;
     min-width: 22%;
     max-width: 80%;
-    flex-wrap: nowrap;
     gap: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .todos__item {
+    width: 100%;
+    display: block;
+
+    .todo {
+      justify-content: start;
+      max-width: 100%;
+    }
   }
 }
