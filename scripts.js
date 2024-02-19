@@ -3,7 +3,7 @@ const todoAddBtn = document.querySelector("#todoAddBtn");
 
 let todoListArray = [];
 
-let todosFilter = "all";
+let todosFilter = "Все";
 let filteredTodos = [];
 
 const headerBtn = document.querySelector("#headerBtn");
@@ -21,6 +21,15 @@ headerBtn.addEventListener("click", () => {
     navList.style.display = "none";
     document.body.classList.remove("no-scroll");
   }
+});
+
+// Закрывает меню навигации при клике.
+const navLinks = document.querySelectorAll(".nav__link");
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navList.style.display = "none";
+    document.body.classList.remove("no-scroll");
+  });
 });
 
 /*
@@ -47,7 +56,7 @@ todoAddBtn.addEventListener("click", (event) => {
     const todo = {
       text: todoText,
       date: todoDate,
-      state: "pending",
+      state: "Ожидании",
       id: new Date().getTime(),
     };
 
@@ -56,7 +65,7 @@ todoAddBtn.addEventListener("click", (event) => {
 
   saveTodos();
 
-  if (todosFilter === "all") {
+  if (todosFilter === "Все") {
     loadTodos();
   } else {
     filterTodos(todosFilter);
@@ -75,10 +84,9 @@ const loadTodos = (filter, filteredTodos) => {
   todoList.innerHTML = "";
 
   if (todosList.length === 0) {
-    // const empty = filter
-    //   ? `Нет заданий на ${filter} `
-    //   : "Никаких задач не добавлено";
-    const empty = "Никаких задач не добавлено";
+    const empty = filter
+      ? `Нет заданий на ${filter} `
+      : "Никаких задач не добавлено";
     todoList.innerHTML = `<p>${empty}</p>`;
   } else {
     todosList.forEach((todo) => {
@@ -103,7 +111,7 @@ const sortTodos = (filteredTodos) => {
     if (a.state === b.state) {
       return new Date(a.date) - new Date(b.date);
     } else {
-      return a.state === "completed" ? 1 : -1;
+      return a.state === "Завершенные" ? 1 : -1;
     }
   });
   return todoList;
@@ -114,10 +122,11 @@ const sortTodos = (filteredTodos) => {
 const createTodoElement = (todo) => {
   const today = new Date().setHours(0, 0, 0, 0);
   const overdue =
-    dateStringToDate(formatDate(todo.date)) < today && todo.state === "pending";
+    dateStringToDate(formatDate(todo.date)) < today &&
+    todo.state === "Опаздывающие";
   const todoDateClass = overdue ? "todo-date overdue" : "todo-date";
   const todoBtnDoneClass =
-    todo.state === "pending" ? "todo__btn--done" : "todo__btn--done checked";
+    todo.state === "Ожидании" ? "todo__btn--done" : "todo__btn--done checked";
 
   return `
   <div class="todo">
@@ -152,14 +161,14 @@ const toggleTodoState = (todoItem) => {
   const todoIndex = todoListArray.findIndex((todo) => todo.id === todoId);
 
   if (todoIndex !== -1) {
-    if (todoListArray[todoIndex].state === "pending") {
-      todoListArray[todoIndex].state = "completed";
-    } else if (todoListArray[todoIndex].state === "completed") {
-      todoListArray[todoIndex].state = "pending";
+    if (todoListArray[todoIndex].state === "Ожидании") {
+      todoListArray[todoIndex].state = "Завершенные";
+    } else if (todoListArray[todoIndex].state === "Завершенные") {
+      todoListArray[todoIndex].state = "Ожидании";
     }
 
     saveTodos();
-    if (todosFilter === "all") {
+    if (todosFilter === "Все") {
       loadTodos();
     } else {
       filterTodos(todosFilter);
@@ -175,7 +184,7 @@ const deleteTodo = (todoItem) => {
   todoListArray = todoListArray.filter((todo) => todo.id !== todoId);
 
   saveTodos();
-  if (todosFilter === "all") {
+  if (todosFilter === "Все") {
     loadTodos();
   } else {
     filterTodos(todosFilter);
@@ -204,32 +213,32 @@ const filterTodos = (filter) => {
   const today = new Date().setHours(0, 0, 0, 0);
 
   switch (filter) {
-    case "today":
+    case "Сегодня":
       filteredTodos = getTodayTodos(today);
       loadTodos(filter, filteredTodos);
       break;
 
-    case "overdue":
+    case "Опаздывающие":
       filteredTodos = getOverdueTodos(today);
       loadTodos(filter, filteredTodos);
       break;
 
-    case "scheduled":
+    case "Запланированные":
       filteredTodos = getScheduledTodos(today);
       loadTodos(filter, filteredTodos);
       break;
 
-    case "pending":
-      filteredTodos = getStateTodos("pending");
+    case "Ожидании":
+      filteredTodos = getStateTodos("Ожидании");
       loadTodos(filter, filteredTodos);
       break;
 
-    case "completed":
-      filteredTodos = getStateTodos("completed");
+    case "Завершенные":
+      filteredTodos = getStateTodos("Завершенные");
       loadTodos(filter, filteredTodos);
       break;
 
-    case "all":
+    case "Все":
     default:
       filteredTodos = [];
       loadTodos();
@@ -243,7 +252,7 @@ const getTodayTodos = (today) => {
   const todayFormatted = formatDate(today);
   const todayTodos = todoListArray.filter(
     (todo) =>
-      formatDate(todo.date) === todayFormatted && todo.state === "pending"
+      formatDate(todo.date) === todayFormatted && todo.state === "Ожидании"
   );
 
   return todayTodos;
@@ -255,7 +264,7 @@ const getOverdueTodos = (today) => {
   const overdueTodos = todoListArray.filter(
     (todo) =>
       dateStringToDate(formatDate(todo.date)) < today &&
-      todo.state === "pending"
+      todo.state === "Ожидании"
   );
 
   return overdueTodos;
@@ -267,7 +276,7 @@ const getScheduledTodos = (today) => {
   const scheduledTodos = todoListArray.filter(
     (todo) =>
       dateStringToDate(formatDate(todo.date)) > today &&
-      todo.state === "pending"
+      todo.state === "Ожидании"
   );
 
   return scheduledTodos;
